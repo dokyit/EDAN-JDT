@@ -16,7 +16,7 @@ EDAN is a React + TypeScript web app for custom screen-printing orders, with a P
 
 - **David Sargsyan** - Creative director, mainly working on UX and assists with frontend and backend when needed.
 - **Toby Dokyi** - Working on main structure/layout of the website, as well as the overall frontend and animations.
-- **Josh** - Team contributor.
+- **Josh** - Working on backend development including JavaScript logic, database work, and supporting frontend tasks when needed.
 
 ## Features
 
