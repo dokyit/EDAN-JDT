@@ -34,16 +34,12 @@ const statusColorClasses: Record<(typeof statusSteps)[number], { dot: string; te
 };
 
 function StatusIndicator({ status }: { status: Order["order_status"] }) {
-  const currentIdx = statusSteps.indexOf(status);
   return (
     <div className="flex items-center gap-2 mt-4">
       {statusSteps.map((step, i) => (
         <div key={step} className="flex items-center gap-2">
           {(() => {
-            const isRejected = status === "rejected";
-            const isActive = isRejected
-              ? step === "rejected"
-              : currentIdx >= 0 && i <= currentIdx;
+            const isActive = step === status;
             const color = statusColorClasses[step];
             return (
               <>
