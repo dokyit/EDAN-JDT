@@ -1,0 +1,27 @@
+CREATE DATABASE IF NOT EXISTS jdt_db;
+USE jdt_db;
+
+CREATE TABLE IF NOT EXISTS orders (
+  order_id INT AUTO_INCREMENT PRIMARY KEY,
+  order_desc TEXT NOT NULL,
+  file_path VARCHAR(255) DEFAULT NULL,
+  order_date DATETIME NOT NULL,
+  order_status VARCHAR(50) NOT NULL DEFAULT 'received',
+  email VARCHAR(255) NOT NULL,
+  first_name VARCHAR(100) NOT NULL,
+  last_name VARCHAR(100) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE INDEX idx_orders_email ON orders(email);
+CREATE INDEX idx_orders_status ON orders(order_status);
+CREATE INDEX idx_orders_date ON orders(order_date);
+
+CREATE TABLE IF NOT EXISTS admins (
+  admin_id INT AUTO_INCREMENT PRIMARY KEY,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  password_hash VARCHAR(255) NOT NULL,
+  role VARCHAR(50) NOT NULL DEFAULT 'admin',
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
